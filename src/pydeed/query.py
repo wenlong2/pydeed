@@ -3,8 +3,6 @@ from sltool.webpage import get_page, save_page, url2gurl
 
 odir = settings.pars['data_dir']
 o2dir = odir + 'saved_pages/'
-ofile.mkdir(odir)
-ofile.mkdir(o2dir)
 
 def query_newjob_index(
         q = 'data', l = 'Maryland',
@@ -50,4 +48,14 @@ def format_page(t, pagenum, outfile):
         links = parser.index_link(job)
         for link in links:
             outfile.append('Indeed_link: '+link)
+    return 0
+
+def query_job(job):
+    jid = job['Download_ID']
+    link = job['Indeed_link']
+    page = get_page(link, wait_time=1)
+    page = parser.remove_html_tags(page, delimiter=' ')
+    page = parser.trim_jobpage(page)
+    f_out = o2dir + jid + '.txt'
+    save_page(page, f_out)
     return 0

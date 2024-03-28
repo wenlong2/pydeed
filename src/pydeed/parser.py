@@ -63,3 +63,12 @@ def get_href(text):
     for a in soup.find_all('a', href=True):
         r.append(href2url(a['href']))
     return r
+
+def trim_jobpage(t):
+    uni_str1 = 'What Where Find Jobs'
+    idx = t.find(uni_str1)
+    r = t[idx+len(uni_str1):]
+    uni_str2 = '&nbsp; Report job &nbsp;'
+    idx = r.find(uni_str2)
+    r2 = r[:idx]
+    return r2
