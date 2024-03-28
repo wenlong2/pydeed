@@ -9,4 +9,5 @@ docs/_build
 *.jpg
 .coverage
 build/*
+dist/*
 **/__pycache__/
