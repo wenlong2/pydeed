@@ -1,6 +1,16 @@
 import settings
 import os
 
+def mkdir(path):
+    try:
+        os.makedirs(path)
+        return True
+    except FileExistsError:
+        return True
+    except Exception as e:
+        print(f"Error while creating directory: {e}")
+        return False
+    
 class IndexFile:
     
     def __init__(self, filename):

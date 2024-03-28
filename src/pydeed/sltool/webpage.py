@@ -16,13 +16,15 @@ def save_page(html, f_out):
         h.write(html)
     return 0
 
-def url2gurl(q='',l=''):
+def url2gurl(q='',l='',start=0):
     url_base = settings.pars['url_base']
-    gurl = url_base + 'jobs?q='+q+'&l='+l
+    gurl = url_base + 'jobs?q='+q+'&l='+l+'&sort=date'
+    if start > 0:
+        gurl = gurl + '&start='+str(start)
     return gurl
 
 def href2url(href):
-    url_base = settings.pars['url_base']
+    url_base = settings.pars['url_base2']
     url = url_base+href
     return(url)
 

@@ -1,7 +1,8 @@
-
-_url_base = 'https://www.indeed.com/'
+import settings
+import query
 
 def main():
+    query.query_newjob_index()
     return 0
 
 if __name__ == '__main__':
