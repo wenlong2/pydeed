@@ -16,13 +16,23 @@ for job in jobs:
     outfile.separate()
     ## job title
     title = parser.index_title(job)
-    outfile.append(title)
+    outfile.append('Title: '+title)
     ## company name
     company = parser.index_company(job)
-    outfile.append(company)
+    outfile.append('Company: '+company)
     ## location
     location = parser.index_location(job)
-    print(location)
+    outfile.append('Location: '+location)
+    ## other info
+    meta = parser.index_meta(job)
+    outfile.append('Other info: '+meta)
+    ## date
+    sdate = parser.index_date(job)
+    outfile.append('Post date: '+sdate)
+    ## url link
+    links = parser.index_link(job)
+    for link in links:
+        outfile.append('Indeed link: '+link)
     
     
     

@@ -1,5 +1,7 @@
+import settings
 import re
 from bs4 import BeautifulSoup
+from sltool.webpage import href2url
 
 def split_index_jobs(t):
     uni_str1 = '<div class="cardOutline'
@@ -19,9 +21,9 @@ def index_title(job):
     title = job[(job.find(uni_str1) + len(uni_str1)):job.find(uni_str2)]
     return title
 
-def remove_html_tags(text):
+def remove_html_tags(text, delimiter=''):
     soup = BeautifulSoup(text, features="html.parser")
-    cleaned_text = soup.get_text()
+    cleaned_text = soup.get_text(delimiter)
     return cleaned_text
 
 
@@ -31,3 +33,33 @@ def index_company(job):
     r2 = remove_html_tags(str(r))
     return r2
 
+def index_location(job):
+    soup = BeautifulSoup(job, features="html.parser")
+    r = soup.find('div', {'data-testid':'text-location'})
+    r2 = remove_html_tags(str(r))
+    return r2
+
+def index_meta(job):
+    soup = BeautifulSoup(job, features="html.parser")
+    r = soup.find('div', {'class':'jobMetaDataGroup'})
+    r2 = remove_html_tags(str(r), delimiter='; ').replace(';  ; +;',' +')
+    return r2
+
+def index_date(job):
+    soup = BeautifulSoup(job, features="html.parser")
+    r = soup.find('span', {'data-testid':'myJobsStateDate'})
+    r2 = remove_html_tags(str(r), delimiter='; ')
+    return r2
+
+def index_link(job):
+    soup = BeautifulSoup(job, features="html.parser")
+    r = soup.find('h2', {'class':'jobTitle'})
+    r2 = get_href(str(r))
+    return r2
+
+def get_href(text):
+    soup = BeautifulSoup(text, features="html.parser")
+    r = []
+    for a in soup.find_all('a', href=True):
+        r.append(href2url(a['href']))
+    return r

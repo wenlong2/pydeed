@@ -21,4 +21,8 @@ def url2gurl(q='',l=''):
     gurl = url_base + 'jobs?q='+q+'&l='+l
     return gurl
 
+def href2url(href):
+    url_base = settings.pars['url_base']
+    url = url_base+href
+    return(url)
 
