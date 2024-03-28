@@ -5,8 +5,16 @@ odir = settings.pars['data_dir']
 o2dir = odir + 'saved_pages/'
 
 def query_newjob_index(
-        q = 'data', l = 'Maryland',
-        npage = 2, outfilename='index.txt'):
+        keyword = '', location = '',
+        npage = 1, outfilename='index.txt'):
+    if keyword is None:
+        keyword = 'python'
+    if location is None:
+        location = 'USA'
+    if npage is None:
+        npage = 1
+    if outfilename is None:
+        outfilename='index.txt'
     f_out = odir + outfilename
     outfile = ofile.IndexFile(f_out)
     for ipage in range(npage):
@@ -14,7 +22,7 @@ def query_newjob_index(
         start = 0
         if ipage > 0:
             start=ipage*10
-        url = url2gurl(q, l, start=start)
+        url = url2gurl(keyword, location, start=start)
         index_page = get_page(url, wait_time=1)
         save_page(index_page, o2dir+'p'+str(ipage+1)+'.html')
         format_page(index_page, ipage+1, outfile)

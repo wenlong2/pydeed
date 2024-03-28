@@ -28,11 +28,6 @@ class IndexFile:
     def separate(self):
         self.append('\n\n'+'-'*80+'\n\n')
         return 0
-
-class job:
-    def __init__(self):
-        self.job = 0
-        
     
 class LoadIndex:
     def __init__(self, filename):
