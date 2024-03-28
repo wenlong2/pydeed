@@ -7,7 +7,7 @@ ofile.mkdir(odir)
 ofile.mkdir(o2dir)
 
 def main():
-    query.query_newjob_index(npage = 20)
+    query.query_newjob_index(npage = 2)
     f_dat = odir + 'index.txt'
     dat = ofile.LoadIndex(f_dat)
     for ijob in range(dat.njobs):
