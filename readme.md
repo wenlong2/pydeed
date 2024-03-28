@@ -14,6 +14,7 @@ A python tool to retrieve indeed job postings for keyword filtering.
 
 ```
 pip install git+https://github.com/wenlong2/pydeed
+pip install --index-url https://test.pypi.org/simple/ --no-deps pydeed
 ```
 
 

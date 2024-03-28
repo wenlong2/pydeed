@@ -1,4 +1,4 @@
-import settings
+from .. import settings
 from selenium import webdriver
 import time
 

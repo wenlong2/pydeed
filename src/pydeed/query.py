@@ -1,5 +1,5 @@
-import settings, ofile, parser
-from sltool.webpage import get_page, save_page, url2gurl
+from . import settings, ofile, parser
+from .sltool.webpage import get_page, save_page, url2gurl
 
 odir = settings.pars['data_dir']
 o2dir = odir + 'saved_pages/'

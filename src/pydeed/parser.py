@@ -1,7 +1,7 @@
-import settings
+from . import settings
 import re
 from bs4 import BeautifulSoup
-from sltool.webpage import href2url
+from .sltool.webpage import href2url
 
 def split_index_jobs(t):
     uni_str1 = '<div class="cardOutline'

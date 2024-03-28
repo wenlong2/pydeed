@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pydeed"
-version = "0.0.1"
+version = "0.0.1a3"
 authors = [
   { name="Wenlong", email="wenlongtamu@gmail.com" },
 ]
@@ -16,7 +16,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
 Homepage = "https://github.com/wenlong2/pydeed"
 Issues = "https://github.com/wenlong2/pydeed/issues"
+
