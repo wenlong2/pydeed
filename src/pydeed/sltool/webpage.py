@@ -3,7 +3,10 @@ from selenium import webdriver
 import time
 
 def get_page(url, wait_time=1):
-    driver = webdriver.Firefox()
+    options = webdriver.FirefoxOptions()
+    options.headless = True
+    options.add_argument("-headless")
+    driver = webdriver.Firefox(options=options)
     driver.get(url)
     time.sleep(wait_time) ## to be improved
     html = driver.page_source

@@ -13,6 +13,8 @@ def query_newjob_index(
         location = 'USA'
     if npage is None:
         npage = 1
+    else:
+        npage = int(npage)
     if outfilename is None:
         outfilename='index.txt'
     f_out = odir + outfilename

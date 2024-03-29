@@ -1,7 +1,8 @@
 def init():
+    import os
     global pars
     pars = {
-        'data_dir': '/Users/wenlong/work/test/pydeed/',
+        'data_dir': os.getcwd()+'/',
         'url_base': 'https://www.indeed.com/',
         'url_base2': 'https://www.indeed.com',
         'id_location': 'text-input-where',

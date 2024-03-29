@@ -34,8 +34,8 @@ def add_job(out, job):
     out.append(job['Company']+', ')
     out.append(job['Location']+' <br>')
     out.append(job['Other_info']+' <br>')
-    out.append(job['Post_date']+' <br>')
-    out.append('<a href="'+link+'"> Indeed link </a>')
+    out.append(job['Post_date']+' ')
+    out.append('<a href="'+link+'" target="_blank"> Indeed link </a>')
     return 0
 
 def expand_key(k):
