@@ -14,7 +14,13 @@ A python tool to retrieve indeed job postings for keyword filtering.
 
 ```
 pip install git+https://github.com/wenlong2/pydeed
-pip install --index-url https://test.pypi.org/simple/ --no-deps pydeed
+pip install --index-url https://test.pypi.org/simple/ pydeed
+pip install -r requirements.txt
 ```
 
+### Quick example
 
+``` bash
+p3 -m pydeed -j get -k Python -l California -n 5
+p3 -m pydeed -j filter -e 'TS/SCI,US citizen,security clearance'
+```
