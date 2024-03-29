@@ -1,12 +1,13 @@
 ## pydeed
 
-A python tool to retrieve indeed job postings for keyword filtering.
+A Python tool for retrieving Indeed job postings and filtering custom keywords.
 
 ## Key Features
 
-- query indeed.com with keywords and location
-- save job meta information to a local file
-- retrieve detailed information for each job and save it into local text file
+- Query indeed.com with keywords and location.
+- Save job meta information to a local file.
+- Retrieve detailed information for each job and save it to a local text file.
+- Filter jobs by excluding postings containing specific keywords.
 
 ## installing
 
