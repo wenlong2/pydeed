@@ -9,7 +9,7 @@ A Python tool for retrieving Indeed job postings and filtering custom keywords.
 - Retrieve detailed information for each job and save it to a local text file.
 - Filter jobs by excluding postings containing specific keywords.
 
-## installing
+## Installing
 
 ### Python 3.8 or higher is required
 
