@@ -22,6 +22,7 @@ pip install -r requirements.txt
 ### Quick example
 
 ``` bash
+python3 -m pydeed -h
 python3 -m pydeed -j get -k Python -l California -n 5
 python3 -m pydeed -j filter -e 'TS/SCI,US citizen,security clearance'
 ```
