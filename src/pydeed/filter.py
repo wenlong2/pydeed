@@ -23,8 +23,9 @@ def filter_jobs(
     for ijob in range(dat.njobs):
         job = dat.jobs[ijob]
         jid = job['Download_ID']
+        other_info = job['Company']+job['Location']+job['Other_info']+job['Post_date']
         f_des = o2dir + jid + '.txt'
-        if check_keyword(f_des, key_include, key_exclude):
+        if check_keyword(f_des, key_include, key_exclude, more=other_info):
             add_job(out, job)
     return 0
 
@@ -44,9 +45,9 @@ def expand_key(k):
     else:
         return []
     
-def check_keyword(f, k_in, k_ex):
+def check_keyword(f, k_in, k_ex, more=''):
     r = False
-    txt = open(f).read()
+    txt = open(f).read() + more
     if len(k_in) == 0:
         r = True
     else:
