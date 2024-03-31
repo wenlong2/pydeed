@@ -38,11 +38,14 @@ def main(args) -> None:
 if __name__ == '__main__':
     pars = argparse.ArgumentParser()
     pars.add_argument('-j', '--job',
-                          help='job type:
-"get" to download recent posts from indeed.com
-"filter" to filter the downloaded posts\nExample: 
-python3 -m pydeed -j get -k Python -l California -n 5
-python3 -m pydeed -j filter -e \'TS/SCI,US citizen,security clearance\'',
+                          help="""job type:
+"get" to download recent posts from indeed.com; 
+
+"filter" to filter the downloaded posts; Example:
+
+python3 -m pydeed -j get -k Python -l California -n 5; 
+
+python3 -m pydeed -j filter -e \'TS/SCI,US citizen,security clearance\'""",
                           required=True)
     pars.add_argument('-k', '--keyword', help='job title keyword to be searched')
     pars.add_argument('-l', '--location', help='job location')
