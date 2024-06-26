@@ -47,6 +47,8 @@ def expand_key(k):
     
 def check_keyword(f, k_in, k_ex, more=''):
     r = False
+    if ~os.path.exists(f):
+        return r
     txt = open(f).read() + more
     if len(k_in) == 0:
         r = True
