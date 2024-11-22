@@ -29,7 +29,7 @@ text-decoration:none
 
             for job in jobs:
                 f.write("<tr>")
-                f.write(f"<td><a href='{job['link']}'>{job['title']}</a></td>")
+                f.write(f"<td><a href='{job['link']}' target='_blank'>{job['title']}</a></td>")
                 f.write(f"<td>{job['location']}</td>")
                 f.write(f"<td>{job['salary']}</td>")
                 f.write(f"<td>{job['days_posted']}</td>")
