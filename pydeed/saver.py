@@ -33,7 +33,7 @@ text-decoration:none
                 f.write(f"<td>{job['location']}</td>")
                 f.write(f"<td>{job['salary']}</td>")
                 f.write(f"<td>{job['days_posted']}</td>")
-                f.write("</tr>")
+                f.write("</tr>\n")
             
             f.write("</table></body></html>")
         print(f"Job listings saved to {filename}")
