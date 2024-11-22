@@ -1,0 +1,45 @@
+git2hub.sh
+
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment folder
+venv/
+env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE configuration files
+.vscode/
+.idea/
+
+# Selenium WebDriver binaries (adjust paths if necessary)
+geckodriver*
+chromedriver*
+
+# Operating System specific files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Log files
+*.log
+
+# Python distribution files
+dist/
+build/
+*.egg-info/
+
+# Test and coverage folders
+.coverage
+nosetests.xml
+pytest*
+coverage.xml
+*.cover
+
+# CI/CD configuration files
+*.yml
+*.yaml
