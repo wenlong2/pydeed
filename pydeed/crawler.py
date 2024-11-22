@@ -38,7 +38,6 @@ class IndeedCrawler:
             self._setup_driver()
             params = {"q": query, "l": location, "start": str(int(page * 10)), 'sort': 'date'}
             url = self.base_url + "?" + "&".join([f"{key}={value}" for key, value in params.items()])
-            print(url)
             self.driver.get(url)
             time.sleep(random.uniform(2,5))  # Random delay before scraping
 
