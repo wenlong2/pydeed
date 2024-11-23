@@ -6,9 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
-import warnings
-
-warnings.filterwarnings("ignore")
 
 class IndeedCrawler:
     def __init__(self, base_url="https://www.indeed.com/jobs"):
@@ -39,7 +36,7 @@ class IndeedCrawler:
             params = {"q": query, "l": location, "start": str(int(page * 10)), 'sort': 'date'}
             url = self.base_url + "?" + "&".join([f"{key}={value}" for key, value in params.items()])
             self.driver.get(url)
-            time.sleep(random.uniform(2,5))  # Random delay before scraping
+            time.sleep(random.uniform(0.2,0.5))  # Random delay before scraping
 
             # Scroll to load more jobs dynamically
             self._scroll_page()
@@ -61,8 +58,10 @@ class IndeedCrawler:
                 link = job_card.find("a", href=True)["href"]
                 location = job_card.find("div", class_="company_location").get_text(strip=True)
                 location = location.replace('InterImage','').replace('DataAnnotation4.0','')
-                salary = job_card.find("div", class_="salary-snippet-container").get_text(strip=True) if job_card.find("div", class_="salary-snippet-container") else "n/a"
-                days_posted = job_card.find('span', {'data-testid':'"myJobsStateDate"'}).get_text(strip=True)
+                salary = job_card.find("div", class_="salary-snippet-container").get_text(strip=True) if job_card.find("div", class_="salary-snippet-container") else ""
+                days_posted = job_card.find('span', {'data-testid':'myJobsStateDate'})
+                days_posted = days_posted.get_text(strip=True) if days_posted else 'n/a'
+                    
                 full_link = 'https://www.indeed.com'+link
                 post_text = self.get_raw_text_of_post(full_link)
                 job_posts.append({
