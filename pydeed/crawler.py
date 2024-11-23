@@ -62,7 +62,7 @@ class IndeedCrawler:
                 location = job_card.find("div", class_="company_location").get_text(strip=True)
                 location = location.replace('InterImage','').replace('DataAnnotation4.0','')
                 salary = job_card.find("div", class_="salary-snippet-container").get_text(strip=True) if job_card.find("div", class_="salary-snippet-container") else "n/a"
-                days_posted = job_card.find('span', {'data-testid':'\"myJobsStateDate\"'}).get_text(strip=True)
+                days_posted = job_card.find('span', {'data-testid':'"myJobsStateDate"'}).get_text(strip=True)
                 full_link = 'https://www.indeed.com'+link
                 post_text = self.get_raw_text_of_post(full_link)
                 job_posts.append({
