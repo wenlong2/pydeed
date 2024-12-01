@@ -1,5 +1,5 @@
 class JobSaver:
-    def save_to_html(self, jobs, filename, exclude_keywords=[]):
+    def save_to_html(self, jobs, filename, exclude_keywords=[], job_type='', location=''):
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write("""
@@ -23,8 +23,9 @@ text-decoration:none
 }
 </style><title>Job Listings</title></head><body>
             """)
-            f.write("<h1>Filtered Job Posts</h1><h2>Excluding posts with keywords (case-insensitive): ")
-            f.write(', '.join(exclude_keywords)+' </h2>')
+            f.write("<h1>Filtered Job Posts</h1><h2>keywords (case-insensitive): </h2> <p> + ")
+            f.write(job_type+', '+location+'</p><p> - ')
+            f.write(', '.join(exclude_keywords)+' </p><br>')
             f.write("<table><tr><th>Title</th><th>Location</th><th>Salary</th><th>Days Posted</th></tr>")
 
             for job in jobs:
